@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.study.ssm.mapper.ContractMapper">
+    <resultMap id="BaseResultMap" type="org.study.ssm.bean.Contract">
+        <id column="sys_guid" jdbcType="VARCHAR" property="sysGuid" />
+        <result column="code" jdbcType="VARCHAR" property="code" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="operator_mobile" jdbcType="VARCHAR" property="operatorMobile" />
+        <result column="operator_id" jdbcType="VARCHAR" property="operatorId" />
+        <result column="operator_name" jdbcType="VARCHAR" property="operatorName" />
+        <result column="operation_dep_id" jdbcType="VARCHAR" property="operationDepId" />
+        <result column="operation_dep_name" jdbcType="VARCHAR" property="operationDepName" />
+        <result column="source_id" jdbcType="VARCHAR" property="sourceId" />
+        <result column="source_code" jdbcType="VARCHAR" property="sourceCode" />
+        <result column="contract_source" jdbcType="VARCHAR" property="contractSource" />
+        <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+        <result column="company_id" jdbcType="VARCHAR" property="companyId" />
+        <result column="supplier_id" jdbcType="VARCHAR" property="supplierId" />
+        <result column="supplier_name" jdbcType="VARCHAR" property="supplierName" />
+        <result column="start_time" jdbcType="TIMESTAMP" property="startTime" />
+        <result column="end_time" jdbcType="TIMESTAMP" property="endTime" />
+        <result column="contract_clause" jdbcType="VARCHAR" property="contractClause" />
+        <result column="payment_clause" jdbcType="VARCHAR" property="paymentClause" />
+        <result column="status" jdbcType="VARCHAR" property="status" />
+        <result column="total_price" jdbcType="DECIMAL" property="totalPrice" />
+        <result column="version" jdbcType="VARCHAR" property="version" />
+        <result column="sys_create_date" jdbcType="TIMESTAMP" property="sysCreateDate" />
+        <result column="sys_create_user" jdbcType="VARCHAR" property="sysCreateUser" />
+        <result column="sys_update_date" jdbcType="TIMESTAMP" property="sysUpdateDate" />
+        <result column="sys_update_user" jdbcType="VARCHAR" property="sysUpdateUser" />
+        <result column="sys_recycle" jdbcType="VARCHAR" property="sysRecycle" />
+        <result column="version_num" jdbcType="INTEGER" property="versionNum" />
+        <result column="approval_status" jdbcType="INTEGER" property="approvalStatus" />
+        <result column="extend3" jdbcType="VARCHAR" property="extend3" />
+        <result column="extend4" jdbcType="VARCHAR" property="extend4" />
+        <result column="extend5" jdbcType="VARCHAR" property="extend5" />
+    </resultMap>
+    <select id="listContract" resultMap="BaseResultMap">
+        select * from zc_contract
+    </select>
+
+    <select id="getContract" resultMap="BaseResultMap">
+         select * from zc_contract where code="CO20180322002408"
+    </select>
+</mapper>

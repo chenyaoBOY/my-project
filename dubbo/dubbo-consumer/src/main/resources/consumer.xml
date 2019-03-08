@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+       http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- consumer's application name, used for tracing dependency relationship (not a matching criterion),
+    don't set it same as provider -->
+    <dubbo:application name="demo-consumer"/>
+
+    <!-- use multicast registry center to discover service -->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+    <!--<dubbo:registry address="zookeeper://192.168.1.199:2181"/>-->
+    <!-- generate proxy for the remote service, then demoService can be used in the same way as the
+    local regular interface -->
+    <dubbo:reference id="userService" interface="org.study.dubbo.service.UserService" />
+    <!--直连操作 令牌验证-->
+    <!--<dubbo:reference  id="demoService" check="false" interface="com.alibaba.dubbo.demo.DemoService" url="dubbo://localhost:20880">-->
+        <!--<dubbo:parameter key="token" value="132456"/>-->
+    <!--</dubbo:reference>-->
+    <!--分组调用 指定版本消费-->
+    <!--<dubbo:reference id="demoService1" group="demo1" check="false" interface="com.alibaba.dubbo.demo.DemoService" version="0.0.1" />-->
+    <!--<dubbo:reference id="demoService2" group="demo2" check="false" interface="com.alibaba.dubbo.demo.DemoService" version="0.0.2"/>-->
+    <!--分组聚合-->
+    <!--<dubbo:reference id="demoService" group="demo1,demo2" check="false" interface="com.alibaba.dubbo.demo.DemoService" >-->
+        <!--<dubbo:method name="sayHello" merger="true" ></dubbo:method>-->
+        <!--<dubbo:method name="getCount" merger="true" ></dubbo:method>-->
+    <!--</dubbo:reference>-->
+    <!--异步调用-->
+    <!--<dubbo:reference injvm="true" id="demoService" check="false" cache="lru"  interface="com.alibaba.dubbo.demo.DemoService" >-->
+        <!--<dubbo:parameter key="cache.size" value="10"/>-->
+        <!--&lt;!&ndash;<dubbo:method name="getCount" async="true"></dubbo:method>&ndash;&gt;-->
+    <!--</dubbo:reference>-->
+
+    <!--<dubbo:reference id="demoService" check="false"  interface="com.alibaba.dubbo.demo.DemoService" />-->
+
+
+</beans>

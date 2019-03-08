@@ -1,0 +1,7 @@
+
+
+模拟dubbo 自定义xsd文件，在xml中使用自定义的标签 定义属性
+
+通过与spring结合，启动容器 读取xml中的key:value 给bean赋值
+
+做到无侵入式的 根据xml配置获取属性
