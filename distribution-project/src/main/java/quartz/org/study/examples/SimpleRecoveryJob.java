@@ -15,7 +15,7 @@
  * 
  */
  
-package org.study.quartz.examples;
+package quartz.org.study.examples;
 
 import org.quartz.Job;
 import org.quartz.JobDataMap;

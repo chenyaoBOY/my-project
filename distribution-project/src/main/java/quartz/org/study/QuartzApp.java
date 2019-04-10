@@ -1,4 +1,4 @@
-package org.study.quartz;
+package quartz.org.study;
 
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;

@@ -15,7 +15,7 @@
  * 
  */
  
-package org.study.quartz.examples;
+package quartz.org.study.examples;
 
 import static org.quartz.DateBuilder.futureDate;
 import static org.quartz.JobBuilder.newJob;

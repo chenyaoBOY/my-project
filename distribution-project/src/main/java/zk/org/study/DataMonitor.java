@@ -1,4 +1,4 @@
-package org.study.zookeeper;
+package zk.org.study;
 
 
 import org.apache.zookeeper.KeeperException;

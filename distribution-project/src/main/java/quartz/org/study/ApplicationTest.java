@@ -1,4 +1,4 @@
-package org.study.quartz;
+package quartz.org.study;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;

@@ -1,10 +1,9 @@
-package org.study.zookeeper;
+package zk.org.study;
 
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.ZooKeeper;
-import org.apache.zookeeper.data.Stat;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
