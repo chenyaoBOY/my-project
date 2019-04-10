@@ -1,4 +1,4 @@
-package org.study.project.zookeeper;
+package zk.org.study;
 
 import org.apache.zookeeper.ZooKeeper;
 import org.apache.zookeeper.data.Stat;

@@ -1,4 +1,4 @@
-package org.study.project.mq.rocketmq.apiLearn;
+package mq.org.study.rocketmq.apiLearn;
 
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;

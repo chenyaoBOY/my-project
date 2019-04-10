@@ -1,4 +1,4 @@
-package org.study.project.mq.activemq;
+package mq.org.study.activemq;
 
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.RedeliveryPolicy;

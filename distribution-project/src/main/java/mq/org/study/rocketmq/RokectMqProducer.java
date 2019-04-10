@@ -1,4 +1,4 @@
-package org.study.project.mq.rocketmq;
+package mq.org.study.rocketmq;
 
 import org.apache.rocketmq.client.ClientConfig;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;

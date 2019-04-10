@@ -1,4 +1,4 @@
-package org.study.project.mq.rocketmq.cluster;
+package mq.org.study.rocketmq.cluster;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
