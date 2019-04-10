@@ -1,4 +1,4 @@
-package org.study.common.util;
+package util;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JavaType;

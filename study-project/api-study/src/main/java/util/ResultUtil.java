@@ -1,4 +1,4 @@
-package org.study.common.util;
+package util;
 
 import java.io.Serializable;
 
