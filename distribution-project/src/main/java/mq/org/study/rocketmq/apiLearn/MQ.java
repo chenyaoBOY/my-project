@@ -1,5 +1,6 @@
 package mq.org.study.rocketmq.apiLearn;
 
+import mq.org.study.util.JsonUtil;
 import org.apache.rocketmq.client.consumer.DefaultMQPushConsumer;
 import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
@@ -11,8 +12,7 @@ import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
 import org.apache.rocketmq.common.message.Message;
 import org.apache.rocketmq.common.message.MessageExt;
 import org.apache.rocketmq.remoting.exception.RemotingException;
-import org.junit.jupiter.api.Test;
-import util.JsonUtil;
+import org.junit.Test;
 
 public class MQ {
     String topic = "SendOrderConfirm";
