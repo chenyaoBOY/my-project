@@ -1,11 +1,9 @@
 package zk.org.study.election;
 
-import org.I0Itec.zkclient.IZkChildListener;
 import org.I0Itec.zkclient.IZkDataListener;
 import org.I0Itec.zkclient.ZkClient;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -25,19 +23,27 @@ public class Servers implements Serializable {
         ZkClient zk = new ZkClient("192.168.1.128", 10000);
         Server server = new Server("127.0.0." + id, id);
         //1
-        if (zk.countChildren("/master") == 0) {
-            zk.createEphemeral("/master/master", server);
-            System.out.println("服务器ID="+id+"成功抢占master");
+        if (!zk.exists("/master")) {
+            zk.createEphemeral("/master", server);
+            System.out.println("服务器ID=" + id + "成功抢占master");
         } else {
+            if (!zk.exists("/servers")) {
+                zk.createPersistent("/servers");
+            }
             zk.createEphemeral("/servers/server" + id, server);
-            System.out.println("服务器ID="+id+"沦为slave");
+            System.out.println("服务器ID=" + id + "沦为slave");
         }
         //2
-        zk.subscribeChildChanges("/master", new IZkChildListener() {
+
+        zk.subscribeDataChanges("/master", new IZkDataListener() {
             @Override
-            public void handleChildChange(String parentPath, List<String> currentChilds) throws Exception {
-                zk.createEphemeral("/master/master", server);
-                System.out.println("slave"+id+"抢占master");
+            public void handleDataChange(String dataPath, Object data) throws Exception {
+
+            }
+            @Override
+            public void handleDataDeleted(String dataPath) throws Exception {
+                zk.createEphemeral("/master", server);
+                System.out.println("slave" + id + "抢占master");
             }
         });
         while (true) {
