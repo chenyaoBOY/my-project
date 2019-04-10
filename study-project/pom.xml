@@ -16,6 +16,7 @@
         <module>security-shiro</module>
         <module>ssm</module>
         <module>common</module>
+        <module>quartz</module>
     </modules>
 
 
