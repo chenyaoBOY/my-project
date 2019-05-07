@@ -87,19 +87,14 @@ public class ListSetMap {
     }
     @Test
     public void test04(){
-       ArrayList list = new ArrayList();
+        List<Integer> list = Arrays.asList(1,3,2,123,0,12);
 
-       list.add(1);
-       list.add(1);
-       list.add(1);
-       list.add(1);
-       list.add(1);
-       list.add(1);
-       list.add(1);
-       list.add(1);
-       list.add(1);
-       list.add(1);
-       list.add(1);
+        list.add(10);
+        System.out.println(list);
+        Collections.sort(list);
+
+        System.out.println(list);
+
     }
 
 }

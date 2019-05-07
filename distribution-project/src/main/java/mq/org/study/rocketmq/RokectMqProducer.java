@@ -42,7 +42,7 @@ public class RokectMqProducer {
          * producer的配置
          */
         //Producer组名，多个Producer如果属于一个应用，发送同样的消息，则应该将它们归为同一组
-        producer.setProducerGroup("DEFAULT_PRODUCER");
+        producer.setProducerGroup("TEST_GROUP");
         //在发送消息时，自动创建服务器不存在的topic，需要指定Key
         producer.setCreateTopicKey("TBW102");
         //在发送消息时，自动创建服务器不存在的topic，默认创建的队列数
@@ -72,7 +72,7 @@ public class RokectMqProducer {
          *  DelayTimeLevel 选填，消息延时级别，0表示不延时，大于0会延时特定的时间才会被消费 默认0
          *  WaitStoreMsgOK 选填，表示消息是否在服务器落盘后才返回应答 默认true
          */
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 10; i++) {
             Message message = new Message();
             message.setTopic("TopicTest");
             message.setBody(("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET));

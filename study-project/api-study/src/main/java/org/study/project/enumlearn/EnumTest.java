@@ -1,6 +1,10 @@
 package org.study.project.enumlearn;
 
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+
+import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -13,7 +17,14 @@ public class EnumTest {
     public static void main(String[] args) {
 //        testEnum();
 //        testEnume2();
-        testEnume3();
+//        testEnume3();
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("color",Color.RED);
+        String s = JSONObject.toJSONString(map);
+        JSONObject object = JSONObject.parseObject(s);
+        String color = (String) object.get("color");
+        System.out.println(color);
+
     }
 
     public static void testEnum(){

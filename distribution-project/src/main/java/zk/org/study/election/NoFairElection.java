@@ -10,12 +10,13 @@ import java.util.Random;
  * Author: chenyao
  * Date: 2019/4/10 17:48
  * Description:集群中的机器
+ * 不公平竞争策略：即随机抢占，只要抢占成功即可
  * 1.当初次启动时尝试抢占master临时节点
  * 2.发现已经被占用 则作为备选机器 监听主节点删除事件
  * 3.master临时节点被删除了 则说明此时master节点上的机器已经宕机 或者出现网络故障
  * 4.集群备选节点开始抢占master
  */
-public class Servers implements Serializable {
+public class NoFairElection implements Serializable {
 
     public static void main(String[] args) {
         Random random = new Random();
