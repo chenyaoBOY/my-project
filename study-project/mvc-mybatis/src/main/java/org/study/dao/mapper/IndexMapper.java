@@ -7,4 +7,8 @@ package org.study.dao.mapper;
  */
 public interface IndexMapper {
     Integer getCount();
+
+    Integer getId(int i);
+
+    void updateId();
 }

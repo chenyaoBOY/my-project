@@ -1,12 +1,12 @@
 package org.study.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.study.dao.mapper.IndexMapper;
+import org.study.service.TransactionService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -27,6 +27,8 @@ public class IndexController {
 
     @Autowired
     private IndexMapper indexMapper;
+    @Autowired
+    private TransactionService service;
 
     @RequestMapping("/index")
     @ResponseBody
@@ -34,6 +36,13 @@ public class IndexController {
         Integer count = indexMapper.getCount();
         return count.toString();
     }
+    @RequestMapping("/tran")
+    @ResponseBody
+    public String ifAbleRepeatReadInOneTransaction(){
+        service.ifAbleRepeatReadInOneTransaction();
+        return "ok";
+    }
+
     /**
      * rest风格
      * @param name
