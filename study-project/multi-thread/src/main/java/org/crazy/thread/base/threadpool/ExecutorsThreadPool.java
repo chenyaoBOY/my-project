@@ -1,4 +1,4 @@
-package org.crazy.thread.threadpool;
+package org.crazy.thread.base.threadpool;
 
 import java.util.concurrent.*;
 

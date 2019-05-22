@@ -1,6 +1,5 @@
-package org.crazy.thread.threadsafe;
+package org.crazy.thread.advanced.threadsafe;
 
-import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;

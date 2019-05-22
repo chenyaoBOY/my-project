@@ -2,6 +2,7 @@ package zk.org.study;
 
 import org.I0Itec.zkclient.IZkDataListener;
 import org.I0Itec.zkclient.ZkClient;
+import org.apache.zookeeper.data.ACL;
 import org.apache.zookeeper.data.Stat;
 import org.junit.Test;
 import sun.misc.Cleaner;
@@ -17,6 +18,13 @@ public class ZkClientTest {
     static ZkClient  zk = new ZkClient("localhost", 10000);
     public static void main(String[] args) {
         ZkClient  client = new ZkClient("localhost", 10000);
+        //创建递归节点
+        client.readData("/g",new Stat());
+        client.deleteRecursive("/dd");
+        client.deleteRecursive("/d");
+        client.delete("/tt");
+
+        ACL acl = new ACL();
         client.close();
 
 //        boolean exists = zk.exists("/zookeeper");

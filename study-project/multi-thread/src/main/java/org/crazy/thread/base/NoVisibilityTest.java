@@ -1,4 +1,4 @@
-package org.crazy.thread;
+package org.crazy.thread.base;
 
 /**
  * 验证在 不加同步机制的情况下，线程之间对共享变量的操作是否透明可见

@@ -1,4 +1,4 @@
-package org.crazy.thread.threadsafe;
+package org.crazy.thread.advanced.threadsafe;
 
 /**
  * @author chenyao

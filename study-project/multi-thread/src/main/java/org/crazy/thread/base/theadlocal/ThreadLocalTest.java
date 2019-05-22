@@ -1,4 +1,4 @@
-package org.crazy.thread.theadlocal;
+package org.crazy.thread.base.theadlocal;
 
 import java.util.HashSet;
 import java.util.Set;

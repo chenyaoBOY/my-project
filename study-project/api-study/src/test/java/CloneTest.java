@@ -41,4 +41,11 @@ public class CloneTest {
                 System.out.println(12213);
         }
     }
+
+    @Test
+    public void test04(){
+        Long currentTime = System.currentTimeMillis() / 1000;
+        int intervalDateSec = 20 * 60;
+        System.out.println(currentTime.intValue() - intervalDateSec);
+    }
 }
