@@ -31,7 +31,7 @@ public class ThreadLocalSafe {
 
         for (int i = 0; i < 10; i++) {
             new Thread(()->{
-                System.out.println(Thread.currentThread().getName()+" cnt="+threadLocal.get().cnt);
+                System.out.println(Thread.currentThread().getName()+" cnt="+threadLocal.get().cnt+"&"+threadLocal);
             }).start();
         }
         if(Thread.activeCount()>1){
