@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+</head>
+<body>
+<div id="content">
+    <h3>路由</h3>
+    <router-link to="/foo">跳转至/foo</router-link>
+    <!--  这里是路由展示的地方  -->
+    <router-view></router-view>
+</div>
+
+
+<script>
+    //定义路由组件
+    const FOO = {template: '<div>这里是foo页面</div>'}
+    //定义路由
+    const routes = [
+        {path: '/foo', component: FOO}
+    ]
+    //创建router实例
+    const router = new VueRouter({
+        routes:routes
+    })
+    //挂载根实例。
+    const APP= new Vue({
+        router,
+    }).$mount('#content')
+</script>
+</body>
+</html>

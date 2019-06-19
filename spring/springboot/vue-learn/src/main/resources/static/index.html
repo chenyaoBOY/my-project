@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+</head>
+<style>
+    .class1 {
+        background: #444;
+        color: #eee;
+    }
+</style>
+<body>
+<div id="content">
+    1.赋值
+    <h3>标题：{{title}}</h3>
+    <h3>副标题：{{assistantTitle}}</h3>
+    <h3>详情：{{details()}}</h3>
+    <div v-html="page1"></div>
+    2.html属性- v-bind 缩写：直接用冒号+属性
+    <br>例如：要在vue中的html中添加class属性，不能直接写class，应该是v-bind:class<br/><br/>
+    <label>修改class</label>
+    <input type="checkbox" v-model="classModify">
+    <div v-bind:class="{'class1':classModify}">
+        改变class属性
+    </div>
+    <br>
+    3.v-model双向绑定<br>
+    v-model 指令用来在 input、select、textarea、checkbox、radio 等表单控件元素上创建双向数据绑定，根据表单上的值，自动更新绑定的元素的值。
+    <div id="modelContent">{{model}}</div>
+    <input v-model="model"> <br/><br>
+    4.点击事件 v-on 缩写：@click
+    <p>{{reverseMessage}}</p>
+    <button v-on:click="reverse">v-on:click反转</button>
+    <button @click="reverse">@click反转</button>
+</div>
+
+<script>
+    var page1 = "<h4>666</h4>";
+    new Vue({
+        el: '#content',
+        data: {
+            title: 'hello',
+            assistantTitle: ' my son',
+            page1: page1,
+            model: '在输入框中输入值',
+            reverseMessage: '字符串反转',
+            classModify: false
+        },
+        methods: {
+            details: function () {
+                return this.title + this.assistantTitle;
+            },
+            reverse: function () {
+                this.reverseMessage = this.reverseMessage.split('').reverse().join('');
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

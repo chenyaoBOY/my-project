@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+    <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+<body>
+<div id="content">
+    <h3>AJAX的使用</h3>
+    <p>{{message}}</p>
+
+    <button @click="sendRequest">发送请求</button>
+</div>
+
+
+<script>
+    new Vue({
+        el: '#content',
+        data: {
+            message: null
+        },
+        mounted() {
+            axios.get('data.json')
+                .then(response => (this.message = response.data, console.log(response)))
+                .catch(function (error) {
+                    console.log(error)
+                })
+        },
+        methods: {
+            sendRequest: function () {
+                axios.get("/vue",{
+                    params:{
+                        message:'chenyao'
+                    }
+                }).then(
+                    res => (alert('server response mes = ' + res))
+                ).catch(function (error) {
+                    console.log(error)
+                })
+            }
+        }
+    })
+</script>
+</body>
+</html>
