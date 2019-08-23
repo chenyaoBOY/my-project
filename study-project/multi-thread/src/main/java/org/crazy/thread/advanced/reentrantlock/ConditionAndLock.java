@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author chenyao
- * @date 2019/6/18 10:51
+ * @date 2019/6/eight 10:51
  * @description ReentrantLock 和Condition的配合使用
  *
  *      在阻塞队列中  ArrayBlockingQueue 使用了该方式 进行阻塞和唤醒

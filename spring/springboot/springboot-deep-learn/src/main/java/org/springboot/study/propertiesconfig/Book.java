@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 @Component
 @ConfigurationProperties(prefix = "book")
 public class Book {
-
+    
     private String name;
     private String author;
 

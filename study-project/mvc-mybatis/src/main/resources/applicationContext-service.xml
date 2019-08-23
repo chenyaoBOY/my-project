@@ -10,6 +10,8 @@
 
 
     <context:component-scan base-package="org.study.service" />
+    <context:component-scan base-package="spring.validate" />
+    <context:component-scan base-package="sharding.jdbc.spilt.strategy" />
 
     <!-- 使用注解注入properties中的值 -->
 <!--    <bean id="properties"-->

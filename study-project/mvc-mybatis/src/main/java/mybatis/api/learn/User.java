@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * @author chenyao
- * @date 2019/5/14 18:15
+ * @date 2019/5/14 eight:15
  * @description
  */
 public class User implements Serializable {
@@ -38,7 +38,7 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return "User{" +
+        return "UserBean{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", age=" + age +

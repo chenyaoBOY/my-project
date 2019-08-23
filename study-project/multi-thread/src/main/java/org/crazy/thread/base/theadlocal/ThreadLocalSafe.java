@@ -24,19 +24,19 @@ public class ThreadLocalSafe {
     };
 
     @Test
-    public void test(){
+    public void test() throws InterruptedException {
         obj.cnt++;
         threadLocal.set(new ThreadLocalSafe());
         System.out.println(Thread.currentThread().getName()+" cnt="+threadLocal.get().cnt);
 
         for (int i = 0; i < 10; i++) {
+            obj.cnt++;
             new Thread(()->{
                 System.out.println(Thread.currentThread().getName()+" cnt="+threadLocal.get().cnt+"&"+threadLocal);
             }).start();
+            Thread.sleep(100);
         }
-        if(Thread.activeCount()>1){
-            Thread.yield();
-        }
+        while (true){}
     }
 
 

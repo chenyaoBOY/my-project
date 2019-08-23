@@ -16,7 +16,7 @@ import java.util.List;
  *      动态配置数据源
  *     原理： AbstractRoutingDataSource 的属性 Map集合targetDataSources保存了xml中
  *     配置的多个数据源，通过重写 determineCurrentLookupKey 获取数据源的key值，决定数据源
- * @date 2018/6/23/23:18
+ * @date 2018/6/23/23:eight
  */
 @Controller
 public class DynamicDatasourceController {

@@ -5,7 +5,7 @@ import sun.dc.pr.PRError;
 
 /**
  * @author chenyao
- * @date 2019/5/17 17:18
+ * @date 2019/5/17 17:eight
  * @description 使用synchronized、wait、notifyAll 模拟生产者消费者
  */
 public class ProductAndConsumer {

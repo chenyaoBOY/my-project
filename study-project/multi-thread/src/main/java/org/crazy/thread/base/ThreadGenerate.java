@@ -83,6 +83,7 @@ public class ThreadGenerate {
         Thread thread4SameTask = new Thread(task);//同一个task只会执行一次
         Thread thread2 = new Thread(task2);
         thread.start();thread2.start();thread4SameTask.start();
+        Integer integer = task.get();
         thread.join();thread2.join();thread4SameTask.join();
         System.out.println(task.get());
     }

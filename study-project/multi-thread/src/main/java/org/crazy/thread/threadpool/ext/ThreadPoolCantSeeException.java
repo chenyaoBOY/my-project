@@ -4,7 +4,7 @@ import java.util.concurrent.*;
 
 /**
  * @author chenyao
- * @date 2019/6/18 16:08
+ * @date 2019/6/eight 16:08
  * @description 在线程池的使用中 很有可能发生异常 但是看不到任何日志信息
  */
 public class ThreadPoolCantSeeException extends ThreadPoolExecutor {

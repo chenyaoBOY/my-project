@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="multi-thread" />
+        <module name="security-shiro" />
+        <module name="mvc-mybatis" />
+        <module name="write-spring" />
+        <module name="api-study" />
+        <module name="distribution-project" />
+        <module name="write-apiwg" />
+        <module name="ssm" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="api-study" target="1.8" />
+      <module name="distribution-project" target="1.8" />
+      <module name="multi-thread" target="1.8" />
+      <module name="mvc-mybatis" target="1.8" />
+      <module name="security-shiro" target="1.8" />
+      <module name="ssm" target="1.8" />
+      <module name="study-project" target="1.8" />
+      <module name="write-apiwg" target="1.8" />
+      <module name="write-spring" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

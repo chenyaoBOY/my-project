@@ -6,7 +6,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd
-	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.2.xsd">
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
     <import resource="mybatis/applicationContext-dao.xml"></import>
 
@@ -14,26 +14,34 @@
     <bean id="transactionManager"
           class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
         <!-- 数据源 -->
-        <property name="dataSource" ref="dataSource1" />
+        <property name="dataSource" ref="dataSource1"/>
+        <!--        <property name="defaultTimeout" value="2"></property>-->
     </bean>
     <!-- 通知 -->
     <tx:advice id="txAdvice" transaction-manager="transactionManager">
         <tx:attributes>
             <!-- 传播行为 -->
-            <tx:method name="save*" propagation="REQUIRED" />
-            <tx:method name="insert*" propagation="REQUIRED" />
-            <tx:method name="add*" propagation="REQUIRED" />
-            <tx:method name="create*" propagation="REQUIRED" />
-            <tx:method name="delete*" propagation="REQUIRED" />
-            <tx:method name="update*" propagation="REQUIRED" />
-            <tx:method name="find*" propagation="SUPPORTS" read-only="true" />
-            <tx:method name="select*" propagation="SUPPORTS" read-only="true" />
-            <tx:method name="get*" propagation="SUPPORTS" read-only="true" />
-            <tx:method name="*" propagation="REQUIRED" />
+            <tx:method name="find*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="select*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="get*" propagation="SUPPORTS" read-only="true"/>
+            <tx:method name="spread*" propagation="NESTED"/>
+            <tx:method name="*" propagation="REQUIRED"/>
         </tx:attributes>
     </tx:advice>
     <!-- 切面 -->
     <aop:config>
-        <aop:advisor advice-ref="txAdvice" pointcut="execution(* org.study.service.*.*(..))" />
+        <!--业务用-->
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* org.study.service.*.*(..))"/>
+        <!--测试事务用-->
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* spring.validate.transactiontest.xml.*.*(..))"/>
     </aop:config>
+
+
+    <!-- 事务管理器 -->
+    <bean id="annotationTransactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource1"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="annotationTransactionManager"/>
+
 </beans>

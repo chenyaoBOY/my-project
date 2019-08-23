@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/api-study/api-study.iml" filepath="$PROJECT_DIR$/api-study/api-study.iml" />
+      <module fileurl="file://$PROJECT_DIR$/distribution-project/distribution-project.iml" filepath="$PROJECT_DIR$/distribution-project/distribution-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multi-thread/multi-thread.iml" filepath="$PROJECT_DIR$/multi-thread/multi-thread.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mvc-mybatis/mvc-mybatis.iml" filepath="$PROJECT_DIR$/mvc-mybatis/mvc-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/security-shiro/security-shiro.iml" filepath="$PROJECT_DIR$/security-shiro/security-shiro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ssm/ssm.iml" filepath="$PROJECT_DIR$/ssm/ssm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/study-project.iml" filepath="$PROJECT_DIR$/study-project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/write-apiwg/write-apiwg.iml" filepath="$PROJECT_DIR$/write-apiwg/write-apiwg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/write-spring/write-spring.iml" filepath="$PROJECT_DIR$/write-spring/write-spring.iml" />
+    </modules>
+  </component>
+</project>

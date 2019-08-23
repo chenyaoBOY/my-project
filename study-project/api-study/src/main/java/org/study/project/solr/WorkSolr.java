@@ -8,7 +8,7 @@ import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.client.solrj.response.UpdateResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
-import util.JsonUtil;
+import org.study.project.util.JsonUtil;
 
 import java.io.IOException;
 import java.util.ArrayList;

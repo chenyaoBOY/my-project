@@ -15,31 +15,30 @@ public class JdbcTest {
         Class.forName("com.mysql.jdbc.Driver");
 
         Connection connection = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/local?characterEncoding=utf-8",
+                "jdbc:mysql://localhost:3306/data?characterEncoding=utf-8",
                 "root",
                 "root");
 
         connection.setAutoCommit(false);//不自动提交事务
 
-        String sql = "update time set time = time+100  where id = 2";
+        String sql = " SELECT o.order_sn  FROM shop.order o WHERE o.user_id = ?";
         PreparedStatement prepareStatement = connection.prepareStatement(sql);
-//        prepareStatement.setString(1,"刷我滴卡");
-//        prepareStatement.setString(2,"001");
+        prepareStatement.setString(1,"1");
 
-        boolean b = prepareStatement.execute();
-
+        ResultSet resultSet = prepareStatement.executeQuery();
 
 
-        PreparedStatement prepareStatement2 = connection.prepareStatement("select time from time where id =2");
-        ResultSet resultSet = prepareStatement2.executeQuery();
+
+//        PreparedStatement prepareStatement2 = connection.prepareStatement("select time from time where id =2");
+//        ResultSet resultSet = prepareStatement2.executeQuery();
         while (resultSet.next()){
-            System.out.println(resultSet.getString("time"));
+            System.out.println(resultSet.getString("order_sn"));
         }
 
-//        resultSet.close();connection.commit();
-//        prepareStatement.close();
-////        prepareStatement2.close();
-//        connection.close();
+        resultSet.close();connection.commit();
+        prepareStatement.close();
+//        prepareStatement2.close();
+        connection.close();
 
 
 

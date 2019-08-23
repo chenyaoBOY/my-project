@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="write-apiwg:war">
+    <output-path>$PROJECT_DIR$/write-apiwg/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>write-apiwg</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="apiwg.war">
+      <element id="artifact" artifact-name="write-apiwg:war exploded" />
+    </root>
+  </artifact>
+</component>

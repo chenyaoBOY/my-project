@@ -27,7 +27,6 @@ public class App {
     Book book;
     @Autowired
     CpxLocation cpx;
-
     @Autowired
     MyAutoConfigBeanService service;
 

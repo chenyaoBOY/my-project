@@ -1,12 +1,14 @@
 package org.study.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.study.dao.mapper.IndexMapper;
-import org.study.service.TransactionService;
+import spring.validate.transactiontest.xml.TransactionService;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -19,9 +21,10 @@ import java.util.Map;
 @Controller
 public class IndexController {
 
+    private Logger logger = LoggerFactory.getLogger(IndexController.class);
 
     @RequestMapping("/")
-    public String index(){
+    public String index() {
         return "index";
     }
 
@@ -32,19 +35,21 @@ public class IndexController {
 
     @RequestMapping("/index")
     @ResponseBody
-    public String indexMapper(){
+    public String indexMapper() {
         Integer count = indexMapper.getCount();
         return count.toString();
     }
+
     @RequestMapping("/tran")
     @ResponseBody
-    public String ifAbleRepeatReadInOneTransaction(){
+    public String ifAbleRepeatReadInOneTransaction() {
         service.ifAbleRepeatReadInOneTransaction();
         return "ok";
     }
 
     /**
      * rest风格
+     *
      * @param name
      * @param age
      * @return
@@ -52,13 +57,25 @@ public class IndexController {
     @RequestMapping("/rest/{name}/{age}")
     @ResponseBody
     public Map<String, Object> rest(@PathVariable String name,
-                                    @PathVariable Integer age){
+                                    @PathVariable Integer age) {
 
         Map<String, Object> map = new HashMap<>();
 
-        map.put("name",name);
-        map.put("age",age);
+        map.put("name", name);
+        map.put("age", age);
 
         return map;
+    }
+
+    @RequestMapping("/exception")
+    @ResponseBody
+    public String exceptionTest() {
+        try {
+            System.out.println(1 / 0);
+            return "ok";
+        } catch (Exception e) {
+            System.out.println(Integer.parseInt(""));
+            return "error";
+        }
     }
 }

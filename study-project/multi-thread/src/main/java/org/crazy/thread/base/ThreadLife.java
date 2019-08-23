@@ -2,7 +2,7 @@ package org.crazy.thread.base;
 
 /**
  * @author chenyao
- * @date 2019/5/16 18:30
+ * @date 2019/5/16 eight:30
  * @description 线程生命周期探索
  */
 public class ThreadLife implements Runnable {

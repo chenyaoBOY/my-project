@@ -11,7 +11,7 @@ import static org.quartz.TriggerBuilder.newTrigger;
 
 /**
  * Author: chenyao
- * Date: 2019/4/3 18:00
+ * Date: 2019/4/3 eight:00
  * Description:
  */
 public class QuartzTest {
