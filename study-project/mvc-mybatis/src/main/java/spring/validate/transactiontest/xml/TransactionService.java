@@ -88,16 +88,16 @@ public class TransactionService {
 
     public void test4Concurrent(){
         UserBean bean = new UserBean();
-        bean.setId(1);
+        bean.setId(2);
         bean.setAge(111);
         bean.setName("陈瑶");
         int i = userMapper.update4Concurrent(bean);
         System.out.println("test4Concurrent="+i);
-        try {
-            Thread.sleep(15000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Thread.sleep(15000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         System.out.println(System.currentTimeMillis());
     }
     public void test4Concurrent2(){

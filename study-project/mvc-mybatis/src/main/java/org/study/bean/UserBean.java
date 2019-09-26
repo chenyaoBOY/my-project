@@ -21,6 +21,11 @@ public class UserBean implements Serializable {
         this.name = name;
     }
 
+    public UserBean(Integer age, String name) {
+        this.age = age;
+        this.name = name;
+    }
+
     public Integer getId() {
         return id;
     }

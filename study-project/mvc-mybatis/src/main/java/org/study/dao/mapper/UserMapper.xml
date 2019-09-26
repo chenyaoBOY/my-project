@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="org.study.dao.mapper.UserMapper">
+    <insert id="insert">
+        insert into user_table
+        (name,age)
+        values
+        (#{name},#{age})
+    </insert>
 
     <update id="updateUserById" parameterType="org.study.bean.UserBean">
         update user_table set name = #{name},age =#{age} where id =#{id}
@@ -38,7 +44,7 @@
             o.user_id = #{userId}
     </select>
     <update id="update4Concurrent" parameterType="org.study.bean.UserBean">
-        update user_table set name =#{name},age=#{age} where age = 100 and id = #{id}
+        update user_table set name =#{name},age=#{age} * #{id} where age = 111 and id = #{id}
     </update>
 
 </mapper>

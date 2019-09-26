@@ -24,4 +24,6 @@ public interface UserMapper {
     List<String> getOrderSnByUserId(Integer userId);
     List<String> getOrderSn(Integer userId);
     int update4Concurrent(UserBean userBean);
+
+    int insert(UserBean bean);
 }
