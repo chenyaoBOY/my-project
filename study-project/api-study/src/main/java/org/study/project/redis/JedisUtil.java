@@ -1,11 +1,9 @@
 package org.study.project.redis;
-import	java.util.Arrays;
+import java.util.*;
 
+import com.alibaba.fastjson.JSONObject;
 import org.junit.jupiter.api.Test;
 import redis.clients.jedis.*;
-
-import java.util.List;
-import java.util.UUID;
 
 /**
  * @author chenyao
@@ -22,15 +20,34 @@ public class JedisUtil {
         config.setMaxTotal(30);
         //1.2 最大空闲连接数
         config.setMaxIdle(10);
-        pool = new JedisPool(config, "192.168.1.131",6379,100000);
+        pool = new JedisPool(config, "10.103.16.184",16379,10000000,"dddddd");
+//        pool = new JedisPool(config, "192.168.1.131",6379,100000);
         JEDIS = pool.getResource();
     }
     public static void main(String[] args) {
-        Long setnx = JEDIS.setnx("nameList", "jiafu");
-        System.out.println(setnx);
-        JEDIS.hset("GROUP_ORDER_INWH","warehouse","广州仓");
-        String hget = JEDIS.hget("GROUP_ORDER_INWH", "warehouse");
-        System.out.println(hget);
+//        Long setnx = JEDIS.setnx("nameList", "jiafu");
+//        System.out.println(setnx);
+//        JEDIS.hset("GROUP_ORDER_INWH","warehouse","广州仓");
+//        String hget = JEDIS.hget("GROUP_ORDER_INWH", "warehouse");
+//   |     System.out.println(hget);
+//        String key = "cy_test_key:";
+//        String key1 = key+"count";
+//        String key2 = key+"list";
+//        String key3 = key+"188";
+//        String key4 = key+"88";
+//        JEDIS.set(key1,"288");
+//        JEDIS.set(key2,"10");
+//        JEDIS.set(key3,"180");
+//        JEDIS.lpush(key4,"{name1:cy}");
+//
+//        JEDIS.close();
+//        System.out.println(JEDIS.llen("XCX_LOTTERY_KEY:ALL_CARD"));
+//        System.out.println(JEDIS.lpop("XCX_LOTTERY_KEY:ALL_CARD"));
+        JEDIS.lpush("XCX_LOTTERY_KEy1","1");
+        System.out.println(JEDIS.lpop("XCX_LOTTERY_KEy1"));
+        System.out.println(JEDIS.lpop("XCX_LOTTERY_KEy1"));
+        System.out.println(JEDIS.lpop("XCX_LOTTERY_KEy1"));
+        System.out.println(JEDIS.lpop("XCX_LOTTERY_KEy1"));
     }
 
     @Test

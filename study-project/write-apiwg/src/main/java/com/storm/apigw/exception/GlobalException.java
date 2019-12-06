@@ -12,6 +12,7 @@ import java.util.Map;
 
 @Component
 public class GlobalException implements HandlerExceptionResolver{
+    @Override
     public ModelAndView resolveException(HttpServletRequest request,
                                          HttpServletResponse response,
                                          Object o, Exception e)

@@ -81,7 +81,7 @@ public class ClusterExample {
       int count = 1;
 
       JobDetail job = newJob(SimpleRecoveryJob.class).withIdentity("job_" + count, schedId) // put triggers in group
-          .requestRecovery() // ask scheduler to re-execute this job if it was in progress when the scheduler went
+          .requestRecovery() // ask scheduler to re-execute this addJob if it was in progress when the scheduler went
           .build();
 
       SimpleTrigger trigger = newTrigger().withIdentity("triger_" + count, schedId)

@@ -1,4 +1,4 @@
-package org.study.project.design23;
+package org.study.project.design23.singleton;
 
 /**
  * @author chenyao
@@ -33,7 +33,7 @@ class Singleton2{
         }
         return obj;
     }
-    public static  Singleton2 getSingelton2(){
+    public static Singleton2 getSingelton2(){
         if(obj == null){
             synchronized (obj){
                 if(obj == null){
@@ -46,7 +46,7 @@ class Singleton2{
 }
 
 /**
- * 实例扩展
+ * 实例扩展 创建多个固定数量的实例
  */
 class SingletonExtend{
     private final static List<SingletonExtend> objList = new ArrayList<>(3);

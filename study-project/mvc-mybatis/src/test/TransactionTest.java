@@ -66,5 +66,12 @@ public class TransactionTest {
     public void jdbcTemplate() throws InterruptedException {
         userService.jdbcTemplate();
     }
-
+    @Test
+    public void testAnnotaion(){
+        userService.annotationTest();
+    }
+    @Test
+    public void proxy(){
+        userService.proxy();
+    }
 }

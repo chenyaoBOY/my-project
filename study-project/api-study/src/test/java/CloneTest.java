@@ -52,6 +52,17 @@ public class CloneTest {
         System.out.println(currentTime.intValue() - intervalDateSec);
     }
 
+    public static void main(String[] args) {
+        try {
+            System.out.println(123);
+//            return;
+            System.exit(0);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println(456);
+        }
+    }
     @Test
     public void test00() {
         /**

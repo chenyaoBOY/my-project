@@ -40,15 +40,15 @@
 
     <!-- SpringMVC核心分发器 -->
     <servlet>
-    <servlet-name>SpringMVC</servlet-name>
-    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-    <init-param>
-        <!-- SpringMVC的配置文件的默认路径是/WEB-INF/${servlet-name}-servlet.xml -->
-        <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:springmvc.xml</param-value>
-    </init-param>
-    <load-on-startup>1</load-on-startup>
-</servlet>
+        <servlet-name>SpringMVC</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <!-- SpringMVC的配置文件的默认路径是/WEB-INF/${servlet-name}-servlet.xml -->
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:springmvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SpringMVC</servlet-name>
         <url-pattern>/*</url-pattern>

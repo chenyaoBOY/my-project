@@ -52,13 +52,13 @@ public class SimpleRecoveryJob implements Job {
    * is associated with the <code>Job</code>.
    * </p>
    * 
-   * @throws JobExecutionException if there is an exception while executing the job.
+   * @throws JobExecutionException if there is an exception while executing the addJob.
    */
   public void execute(JobExecutionContext context) throws JobExecutionException {
 
     JobKey jobKey = context.getJobDetail().getKey();
 
-    // if the job is recovering print a message
+    // if the addJob is recovering print a message
     if (context.isRecovering()) {
       _log.info("SimpleRecoveryJob: " + jobKey + " RECOVERING at " + new Date());
     } else {
