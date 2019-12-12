@@ -1,4 +1,4 @@
-package org.study.project.jdk.eight;
+package org.study.project.jdk.eight.stream;
 
 import java.util.ArrayList;
 import java.util.List;

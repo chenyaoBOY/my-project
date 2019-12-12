@@ -17,6 +17,12 @@ public interface UserMapper {
     List<UserBean> getUserList();
 
     UserBean getUserBean(Integer id);
+
+    /**
+     *  使用${} 如果是单个参数 必须加@Param注解 否则获取不到参数 报参数没有getter方法 $没有占位符
+     * @param id
+     * @return
+     */
     UserBean getUserBean2(@Param("id") Integer id);
     UserBean getUserBean3(String preFixTableName);
     UserBean getUserBean4(@Param("table") String preFixTableName);

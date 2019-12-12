@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.study.dao.mapper.IndexMapper;
 import spring.validate.transactiontest.xml.TransactionService;
 
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,6 +29,13 @@ public class IndexController {
         return "index";
     }
 
+    @RequestMapping("/anno")
+    @ResponseBody
+    public String getAnnotation() throws NoSuchMethodException {
+        Method method = IndexController.class.getMethod("getAnnotation");
+        RequestMapping mapping = method.getAnnotation(RequestMapping.class);
+        return mapping.value()[0];
+    }
     @Autowired
     private IndexMapper indexMapper;
     @Autowired

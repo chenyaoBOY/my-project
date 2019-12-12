@@ -13,7 +13,7 @@ import java.util.Arrays;
  * @description
  */
 public class DistributionLock {
-    private static final Jedis jedis = JedisUtil.JEDIS;
+    private static final Jedis jedis = JedisUtil.jedis;
     public static final String lock_key = "distribution_lock";
 
     public static void main(String[] args) {

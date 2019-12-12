@@ -1,4 +1,4 @@
-package org.cyao.ssm;
+package org.cyao.ssm.useless;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;

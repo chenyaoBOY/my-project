@@ -1,7 +1,6 @@
 package org.study.project.redis;
 import java.util.*;
 
-import com.alibaba.fastjson.JSONObject;
 import org.junit.jupiter.api.Test;
 import redis.clients.jedis.*;
 
@@ -12,7 +11,7 @@ import redis.clients.jedis.*;
  */
 public class JedisUtil {
     public static final JedisPool pool ;
-    public static final Jedis JEDIS ;
+    public static final Jedis jedis;
 
     static {
         JedisPoolConfig config = new JedisPoolConfig();
@@ -22,42 +21,20 @@ public class JedisUtil {
         config.setMaxIdle(10);
         pool = new JedisPool(config, "10.103.16.184",16379,10000000,"dddddd");
 //        pool = new JedisPool(config, "192.168.1.131",6379,100000);
-        JEDIS = pool.getResource();
+        jedis = pool.getResource();
     }
     public static void main(String[] args) {
-//        Long setnx = JEDIS.setnx("nameList", "jiafu");
-//        System.out.println(setnx);
-//        JEDIS.hset("GROUP_ORDER_INWH","warehouse","广州仓");
-//        String hget = JEDIS.hget("GROUP_ORDER_INWH", "warehouse");
-//   |     System.out.println(hget);
-//        String key = "cy_test_key:";
-//        String key1 = key+"count";
-//        String key2 = key+"list";
-//        String key3 = key+"188";
-//        String key4 = key+"88";
-//        JEDIS.set(key1,"288");
-//        JEDIS.set(key2,"10");
-//        JEDIS.set(key3,"180");
-//        JEDIS.lpush(key4,"{name1:cy}");
-//
-//        JEDIS.close();
-//        System.out.println(JEDIS.llen("XCX_LOTTERY_KEY:ALL_CARD"));
-//        System.out.println(JEDIS.lpop("XCX_LOTTERY_KEY:ALL_CARD"));
-        JEDIS.lpush("XCX_LOTTERY_KEy1","1");
-        System.out.println(JEDIS.lpop("XCX_LOTTERY_KEy1"));
-        System.out.println(JEDIS.lpop("XCX_LOTTERY_KEy1"));
-        System.out.println(JEDIS.lpop("XCX_LOTTERY_KEy1"));
-        System.out.println(JEDIS.lpop("XCX_LOTTERY_KEy1"));
+        jedis.set("key","value","nxxxx","expx",1);
     }
 
     @Test
     public void test(){
-        String nx = JEDIS.set("distribution_lock", UUID.randomUUID().toString(), "NX", "EX", 3);
+        String nx = jedis.set("distribution_lock", UUID.randomUUID().toString(), "NX", "EX", 3);
         System.out.println(nx);
     }
     @Test
     public void group() {
-        JEDIS.set("COMPANY:DEPT:EMPLOYEE:name","xiangbi");
+        jedis.set("COMPANY:DEPT:EMPLOYEE:name","xiangbi");
     }
 
     /**
@@ -67,13 +44,13 @@ public class JedisUtil {
     @Test
     public void sortListByRedis(){
 //        List<Integer> list = Arrays.asList(1,11,2,23,12,14);
-//        JEDIS.rpush("numberList","1","11","2","23","12","14","4");
-        List<String> lrange = JEDIS.lrange("numberList", 0, JEDIS.llen("numberList"));
+//        jedis.rpush("numberList","1","11","2","23","12","14","4");
+        List<String> lrange = jedis.lrange("numberList", 0, jedis.llen("numberList"));
         System.out.println(lrange);
-        List<String> numberList = JEDIS.sort("numberList");
+        List<String> numberList = jedis.sort("numberList");
         System.out.println(numberList);
         SortingParams sort = new SortingParams();
-        List<String> numberList1 = JEDIS.sort("numberList", sort.desc());
+        List<String> numberList1 = jedis.sort("numberList", sort.desc());
         System.out.println(numberList1);
 
     }
@@ -88,7 +65,7 @@ public class JedisUtil {
      * @return
      */
     public static String get(String key){
-        String s = JEDIS.get(key);
+        String s = jedis.get(key);
         System.out.println(s);
         return s;
     }
@@ -98,7 +75,7 @@ public class JedisUtil {
      */
     public static boolean close(){
         try {
-            JEDIS.close();
+            jedis.close();
             return true;
         } catch (Exception e) {
             return false;
@@ -107,7 +84,7 @@ public class JedisUtil {
 
     @Test
     public void publish(){
-        JEDIS.publish("channel_1","hello everyone");
+        jedis.publish("channel_1","hello everyone");
     }
 
     @Test
@@ -120,7 +97,7 @@ public class JedisUtil {
             }
         };
         sub.proceed(new Client("192.168.1.131",6379),"channel_1");
-        JEDIS.subscribe(sub,"channel_1");
+        jedis.subscribe(sub,"channel_1");
         while (true){
 
         }

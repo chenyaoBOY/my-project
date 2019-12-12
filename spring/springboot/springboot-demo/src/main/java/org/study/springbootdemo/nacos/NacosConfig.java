@@ -15,10 +15,10 @@ public class NacosConfig {
     /**
      * 需要和  @NacosPropertySource(dataId = "first",autoRefreshed = true) 配合使用
      * @see NacosApp
-     *
+     * 如果nacos控制台 连接不上 这里注入就会报错 项目启动不了
      * autoRefreshed支持刷新
      */
-    @NacosValue(value = "${nacos.name}",autoRefreshed = true)
+//    @NacosValue(value = "${nacos.name}",autoRefreshed = true)
     private String nacosValue;
 
     @RequestMapping("/port")

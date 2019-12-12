@@ -41,7 +41,7 @@ public class LotteryService2 {
 
 
     public static String service() {
-        Jedis jedis= JedisUtil.JEDIS;
+        Jedis jedis= JedisUtil.jedis;
         String value = jedis.lpop(REDIS_KEY_ALL_CARD);
         if (value == null) {
             initPool(jedis);

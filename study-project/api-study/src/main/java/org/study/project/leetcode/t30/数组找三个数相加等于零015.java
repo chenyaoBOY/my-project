@@ -1,5 +1,6 @@
 package org.study.project.leetcode.t30;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 
 import java.util.*;
@@ -159,6 +160,31 @@ public class 数组找三个数相加等于零015 {
     public static void main(String[] args) {
         int[] nums = {-4, -2, -2, -2, 0, 1, 2, 2, 2, 3, 3, 4, 4, 6, 6};
 
-        System.out.println(JSONObject.toJSONString(threeSum3(nums)));
+//        System.out.println(JSONObject.toJSONString(threeSum3(nums)));
+        Demo demo = new Demo();
+        System.out.println(JSON.toJSONString(demo));
+        System.out.println(JSONObject.toJSONString(demo));
+    }
+
+
+    static class Demo{
+        int age;
+        String name;
+
+        public int getAge() {
+            return age;
+        }
+
+        public void setAge(int age) {
+            this.age = age;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
     }
 }

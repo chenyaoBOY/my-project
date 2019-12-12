@@ -1,10 +1,9 @@
-package org.study.project.jdk.eight;
+package org.study.project.jdk.eight.stream;
 
 import java.util.ArrayList;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Consumer;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 

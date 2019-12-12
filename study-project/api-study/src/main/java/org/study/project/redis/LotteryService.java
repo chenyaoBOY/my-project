@@ -1,6 +1,5 @@
 package org.study.project.redis;
 
-import com.alibaba.fastjson.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
@@ -48,7 +47,7 @@ public class LotteryService {
     }
 
     private static void metho() {
-        Jedis jedis = JedisUtil.JEDIS;
+        Jedis jedis = JedisUtil.jedis;
         jedis.del(REDIS_KEY_1);
         jedis.del(REDIS_KEY_3);
         jedis.del(REDIS_KEY_8);
@@ -58,7 +57,7 @@ public class LotteryService {
     }
 
     public static String service() {
-        Jedis jedis = JedisUtil.JEDIS;
+        Jedis jedis = JedisUtil.jedis;
         int one = 700;
         int two = one + 208;
         int three = two + 55;

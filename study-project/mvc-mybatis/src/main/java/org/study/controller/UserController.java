@@ -1,6 +1,5 @@
 package org.study.controller;
 
-import com.alibaba.druid.support.json.JSONUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,9 +20,9 @@ public class UserController {
     private UserMapper userMapper;
 
     @RequestMapping("/user")
-    public String getUser(){
+    public UserBean getUser(){
         UserBean userBean = userMapper.getUserBean(1);
-        return userBean.getName();
+        return userBean;
     }
     @RequestMapping("/user2")
     public String getUser2(){

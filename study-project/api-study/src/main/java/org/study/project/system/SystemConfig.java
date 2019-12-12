@@ -25,5 +25,7 @@ public class SystemConfig {
         System.out.println(s);
         String s1 = JSONObject.toJSONString( System.getProperties());
         System.out.println(s1);
+
+
     }
 }

@@ -18,6 +18,8 @@ import javax.annotation.Resource;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author chenyao
@@ -60,5 +62,14 @@ public class TestController {
 //        String username = userService.getUsername("!23");
 //        String username2 = userService2.getUsername("!23");
         return null;
+    }
+
+    @RequestMapping("/map")
+    @ResponseBody
+    public Map map(){
+     Map map = new HashMap();
+     map.put("name","cy");
+
+     return map;
     }
 }
