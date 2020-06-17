@@ -9,9 +9,10 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
 
-    <context:component-scan base-package="org.study.service" />
-    <context:component-scan base-package="spring.validate" />
-    <context:component-scan base-package="sharding.jdbc.spilt.strategy" />
+    <!--<context:component-scan base-package="org.study.service" />-->
+    <!--<context:component-scan base-package="spring.validate" />-->
+    <!--<context:component-scan base-package="sharding.jdbc.spilt.strategy" />-->
+    <context:component-scan base-package="datasource.diff.compare.service.c3p0" />
 
     <!-- 使用注解注入properties中的值 -->
 <!--    <bean id="properties"-->

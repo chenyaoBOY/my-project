@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.study.ssm.mapper.GPRSMapper" >
+
+  <select id="count" resultType="integer">
+    select count(*) from gprs_reconciliation_channel_bill
+  </select>
+
+  <insert id="insert" parameterType="org.study.ssm.domain.GprsReconciliationChannelBill">
+    insert into gprs_reconciliation_channel_bill ( batch_no, merchant_order_no,
+      merchant_no, gateway_order_no, trade_type,
+      is_original, refund_path, currency_code,
+      amount, channel, channel_no,
+      channel_bill_status, reconciliation_detail_nos,
+      reconciliation_status, source_data_create_time,
+      source_data_update_time, create_time, last_update_time,
+      is_del)
+    values ( #{batchNo,jdbcType=VARCHAR}, #{merchantOrderNo,jdbcType=VARCHAR},
+      #{merchantNo,jdbcType=VARCHAR}, #{gatewayOrderNo,jdbcType=VARCHAR}, #{tradeType,jdbcType=SMALLINT},
+      #{isOriginal,jdbcType=SMALLINT}, #{refundPath,jdbcType=SMALLINT}, #{currencyCode,jdbcType=VARCHAR},
+      #{amount,jdbcType=DECIMAL}, #{channel,jdbcType=VARCHAR}, #{channelNo,jdbcType=VARCHAR},
+      #{channelBillStatus,jdbcType=SMALLINT}, #{reconciliationDetailNos,jdbcType=VARCHAR},
+      #{reconciliationStatus,jdbcType=SMALLINT}, #{sourceDataCreateTime,jdbcType=TIMESTAMP},
+      #{sourceDataUpdateTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{lastUpdateTime,jdbcType=TIMESTAMP},
+      #{isDel,jdbcType=BIT})
+  </insert>
+  <insert id="batchInsert" parameterType="org.study.ssm.domain.GprsReconciliationChannelBill">
+    insert into gprs_reconciliation_channel_bill (batch_no, merchant_order_no,
+      merchant_no, gateway_order_no, trade_type,
+      is_original, refund_path, currency_code,
+      amount, channel, channel_no,
+      channel_bill_status, reconciliation_detail_nos,
+      reconciliation_status, source_data_create_time,
+      source_data_update_time, create_time, last_update_time,
+      is_del)
+    values
+    <foreach collection="list" item="row" separator=",">
+      ( #{row.batchNo,jdbcType=VARCHAR}, #{row.merchantOrderNo,jdbcType=VARCHAR},
+      #{row.merchantNo,jdbcType=VARCHAR}, #{row.gatewayOrderNo,jdbcType=VARCHAR}, #{row.tradeType,jdbcType=SMALLINT},
+      #{row.isOriginal,jdbcType=SMALLINT}, #{row.refundPath,jdbcType=SMALLINT}, #{row.currencyCode,jdbcType=VARCHAR},
+      #{row.amount,jdbcType=DECIMAL}, #{row.channel,jdbcType=VARCHAR}, #{row.channelNo,jdbcType=VARCHAR},
+      #{row.channelBillStatus,jdbcType=SMALLINT}, #{row.reconciliationDetailNos,jdbcType=VARCHAR},
+      #{row.reconciliationStatus,jdbcType=SMALLINT}, #{row.sourceDataCreateTime,jdbcType=TIMESTAMP},
+      #{row.sourceDataUpdateTime,jdbcType=TIMESTAMP}, #{row.createTime,jdbcType=TIMESTAMP}, #{row.lastUpdateTime,jdbcType=TIMESTAMP},
+      #{row.isDel,jdbcType=BIT})
+    </foreach>
+  </insert>
+</mapper>

@@ -11,7 +11,7 @@ public class FeignController {
     @Autowired
     private FeignService service;
 
-    @GetMapping("/fegin/{name}")
+    @GetMapping("/feign/{name}")
     public String getName(@PathVariable String name){
 
         return service.getName(name);

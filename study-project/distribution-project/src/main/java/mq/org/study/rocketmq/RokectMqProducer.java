@@ -7,6 +7,7 @@ import org.apache.rocketmq.client.consumer.listener.ConsumeConcurrentlyStatus;
 import org.apache.rocketmq.client.consumer.listener.MessageListenerConcurrently;
 import org.apache.rocketmq.client.exception.MQClientException;
 import org.apache.rocketmq.client.producer.DefaultMQProducer;
+import org.apache.rocketmq.client.producer.SendCallback;
 import org.apache.rocketmq.client.producer.SendResult;
 import org.apache.rocketmq.common.consumer.ConsumeFromWhere;
 import org.apache.rocketmq.common.message.Message;
@@ -55,6 +56,7 @@ public class RokectMqProducer {
         producer.setRetryAnotherBrokerWhenNotStoreOK(false);
         //客户端限制的消息大小，超过报错，同时服务端也会限制
         producer.setMaxMessageSize(131072);
+        producer.setRetryTimesWhenSendFailed(3);
         //事务消息回查监听器，如果发送事务消息，必须设置
         //Broker回查Producer事务状态时，线程池大小
         //Broker回查Producer事务状态时，线程池大小
@@ -79,12 +81,34 @@ public class RokectMqProducer {
             message.setTags("TopicA");
             message.setKeys("hello-key");
             message.setFlag(0);
-            message.setDelayTimeLevel(0);
+            //延迟时间仅支持 1s/5/10/30s/1~10m/20m/30m/1h/2h  要设置10s延迟 就要setDelayTimeLevel(3)
+            message.setDelayTimeLevel(0);//延迟消息再次设置
             message.setWaitStoreMsgOK(true);
+            /**
+             * 同步发送
+             */
             SendResult sendResult = producer.send(message);
+
+            /**
+             * 异步发送
+             */
+            producer.send(message, new SendCallback() {
+                @Override
+                public void onSuccess(SendResult sendResult) {
+                    System.out.println(sendResult.getSendStatus());
+                }
+
+                @Override
+                public void onException(Throwable e) {
+                    System.out.println(e.getMessage());
+                }
+            });
             System.out.printf("%s%n", sendResult);
         }
         producer.shutdown();
+
+
+
     }
 
 

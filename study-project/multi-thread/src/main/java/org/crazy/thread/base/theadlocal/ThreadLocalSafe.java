@@ -25,14 +25,16 @@ public class ThreadLocalSafe {
 
     @Test
     public void test() throws InterruptedException {
-        obj.cnt++;
-        threadLocal.set(new ThreadLocalSafe());
-        System.out.println(Thread.currentThread().getName()+" cnt="+threadLocal.get().cnt);
+//        obj.cnt++;
+//        threadLocal.set(obj);
+//        System.out.println(Thread.currentThread().getName()+" cnt="+threadLocal.get().cnt);
 
         for (int i = 0; i < 10; i++) {
-            obj.cnt++;
+//            obj.cnt++;
             new Thread(()->{
-                System.out.println(Thread.currentThread().getName()+" cnt="+threadLocal.get().cnt+"&"+threadLocal);
+                ThreadLocalSafe safe = threadLocal.get();
+                safe.cnt++;
+                System.out.println(Thread.currentThread().getName()+" cnt="+threadLocal.get().cnt);
             }).start();
             Thread.sleep(100);
         }

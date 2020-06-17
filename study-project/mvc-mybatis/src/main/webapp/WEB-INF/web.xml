@@ -14,9 +14,9 @@
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>
-            classpath:applicationContext-*.xml,
-            classpath:mybatis/applicationContext*.xml,
-            classpath:sharding/sharding-split-java.xml
+            classpath:applicationContext-service.xml,
+            classpath:datasource.diff/applicationContext-dao-c3p0.xml,
+            classpath:datasource.diff/transaction.xml
         </param-value>
     </context-param>
     <listener>

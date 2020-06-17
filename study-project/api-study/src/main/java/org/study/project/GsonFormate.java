@@ -25,6 +25,7 @@ public class GsonFormate {
     private int id;
     private DetailBean detail;
 
+
     public String getText() {
         return text;
     }

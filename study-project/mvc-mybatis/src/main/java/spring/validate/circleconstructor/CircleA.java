@@ -10,6 +10,7 @@ public class CircleA {
     private CircleB circleB;
 
 
+
     public CircleA(CircleB circleB) {
         this.circleB = circleB;
     }

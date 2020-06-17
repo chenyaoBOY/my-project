@@ -1,0 +1,13 @@
+kabin:
+  source:
+    path: /Java/file/
+    filename:
+      map:
+        adyen: adyen.txt
+        ebanx: ebanx.xlsx
+        emis: first.CSV,second.CSV
+      list:
+        - 1
+        - 2
+server:
+  port: 8081

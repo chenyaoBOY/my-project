@@ -23,11 +23,11 @@ public class UserProvider {
         context.start();
 
 
-        RegistryFactory registryFactory = ExtensionLoader.getExtensionLoader(RegistryFactory.class).getAdaptiveExtension();
-        Registry registry = registryFactory.getRegistry(URL.valueOf("zookeeper://127.0.0.1:2181"));
-        registry.register(URL.valueOf(
-                "condition://0.0.0.0/org.study.dubbo.service.UserService?name=路由规则1&category=routers&dynamic=false&runtime=true&rule="
-                        + URL.encode("192.168.16.2 => 192.168.1.1 ")));
+//        RegistryFactory registryFactory = ExtensionLoader.getExtensionLoader(RegistryFactory.class).getAdaptiveExtension();
+//        Registry registry = registryFactory.getRegistry(URL.valueOf("zookeeper://127.0.0.1:2181"));
+//        registry.register(URL.valueOf(
+//                "condition://0.0.0.0/org.study.dubbo.service.UserService?name=路由规则1&category=routers&dynamic=false&runtime=true&rule="
+//                        + URL.encode("192.168.16.2 => 192.168.1.1 ")));
 
         System.in.read();
 

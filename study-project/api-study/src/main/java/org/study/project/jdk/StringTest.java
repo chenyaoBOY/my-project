@@ -1,9 +1,6 @@
 package org.study.project.jdk;
 
-import java.lang.reflect.AccessibleObject;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import java.lang.reflect.*;
 
 /**
  * @author chenyao
@@ -12,7 +9,7 @@ import java.lang.reflect.Method;
  */
 public class StringTest {
 
-    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException {
+    public static void main(String[] args) throws ClassNotFoundException, IllegalAccessException, InstantiationException, InvocationTargetException {
 
         String str = "asfg" + "asdfb";
         Class<?> clazz = Class.forName("java.lang.String");
@@ -20,7 +17,14 @@ public class StringTest {
         String a = (String) o;
         System.out.println(a.length());
         Constructor<?>[] constructors = clazz.getConstructors();
+        for (Constructor<?> constructor : constructors) {
+            constructor.newInstance();
+        }
         Method[] methods = clazz.getMethods();
+        for (Method method : methods) {
+            method.getName().equals("get");
+            method.invoke(o,"dd");
+        }
         Field[] fields = clazz.getFields();
         Field[] declaredFields = clazz.getDeclaredFields();
         for (Field field : declaredFields) {

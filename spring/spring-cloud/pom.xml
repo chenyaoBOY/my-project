@@ -17,7 +17,9 @@
 		<module>ribbon-service</module>
         <module>springconfig</module>
         <module>springconfig-client</module>
-    </modules>
+		<module>gateway</module>
+		<module>consul</module>
+	</modules>
 
 	<build>
 		<plugins>

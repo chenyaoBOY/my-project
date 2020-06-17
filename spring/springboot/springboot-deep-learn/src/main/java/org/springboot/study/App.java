@@ -1,5 +1,6 @@
 package org.springboot.study;
 
+import org.bean.path.MyAotuConfig;
 import org.bean.path.MyAutoConfigBeanService;
 import org.springboot.study.propertiesconfig.Book;
 import org.springboot.study.propertiesconfig.CpxLocation;
@@ -8,20 +9,21 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.context.annotation.Import;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
  * Hello world!
  */
-@SpringBootApplication
-@RestController
-public class App {
+//@SpringBootApplication
+//@RestController
+public class App implements AppInterface {
 
-
-    @Value("${book.name}")
+    @Value("${app.name:yaoyao}")
     String name;
+    @Value("${log.name}")
+    String logName;
 
     @Autowired
     Book book;
@@ -32,12 +34,21 @@ public class App {
 
     @RequestMapping("/")
     String home(){
-        return "hello spring-boot  " + "=="+service.getMsg()
-                + book.getName() + " "+book.getAuthor()+"cpx="+cpx.getLocation();
+        return "msg="+service.getMsg()+ " \n name="+name
+                + " \n book.name="+book.getName() + "\n book.author= "+book.getAuthor()+
+                "\n cpx="+cpx.getLocation();
     }
     @RequestMapping("/home")
     String hello(){
-        return "home";
+        return logName;
+    }
+    @DeleteMapping(value = "/delete",consumes = "application/json")
+    public String delete(@RequestBody String json){
+        return json;
+    }
+    @PutMapping(value = "/post",consumes = "application/json")
+    public String post(@RequestBody  String json){
+        return json;
     }
 
     @Bean
@@ -49,4 +60,8 @@ public class App {
         SpringApplication.run(App.class,args);
     }
 
+    @Override
+    public String queryInfo() {
+        return "queryInfo";
+    }
 }

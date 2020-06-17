@@ -23,14 +23,14 @@ limitations under the License.
 
     <dubbo:application name="provider"/>
 
-    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+    <dubbo:registry address="zookeeper://127.0.0.1:2181" />
     <!--<dubbo:registry address="zookeeper://192.168.1.199:2181"/>-->
 
-    <dubbo:protocol  name="dubbo" port="20880" />
+    <dubbo:protocol  name="dubbo" port="20880"  />
 
     <bean id="userService" class="org.study.dubbo.provider.UserServiceImpl"/>
 
-    <dubbo:service interface="org.study.dubbo.service.UserService" ref="userService" />
+    <dubbo:service interface="org.study.dubbo.service.UserService" ref="userService" delay="1"/>
 
 
 </beans>

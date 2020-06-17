@@ -1,5 +1,7 @@
 package org.crazy.thread.cas;
 
+import sun.misc.Unsafe;
+
 import java.util.concurrent.atomic.AtomicLongFieldUpdater;
 import java.util.concurrent.atomic.AtomicStampedReference;
 

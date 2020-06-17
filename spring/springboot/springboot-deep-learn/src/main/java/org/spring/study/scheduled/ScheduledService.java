@@ -10,7 +10,7 @@ public class ScheduledService {
     public void task1(){
         System.out.println(System.currentTimeMillis());
     }
-    @Scheduled(cron = "0 0/5 * ? * *")
+    @Scheduled(cron = "0/5 * * ? * *")
     public void task2(){
         System.out.println("cron +" + System.currentTimeMillis());
     }

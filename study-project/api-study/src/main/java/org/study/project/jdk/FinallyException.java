@@ -13,7 +13,7 @@ public class FinallyException {
     private static String test() {
         try {
             System.out.println("sadfads");
-            int i= 1/0;
+//            int i= 1/0;
 //            return "sadfads";
         } finally {
             //即便使用return关键字 finally块中依然可以执行

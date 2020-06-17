@@ -5,6 +5,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.core.io.Resource;
 
 //注入demoService.demo  需要@Configuration @ComponentScan两个注解 且demo需要提供get方法
 @Configuration
@@ -22,6 +23,8 @@ public class ElConfig {
     private String demo;//注入其他bean的属性
     @Value("${book.name}")
     private String bookName;//注入 配置文件properties中的key ${}
+    @Value("https://www.baidu.com")
+    private Resource resource;
 
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ElConfig.class);
