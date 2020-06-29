@@ -1,4 +1,4 @@
-package org.springboot.study;
+package org.springboot.study.service;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 

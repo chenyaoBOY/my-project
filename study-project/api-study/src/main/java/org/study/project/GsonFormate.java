@@ -1,7 +1,10 @@
 package org.study.project;
 
+import com.alibaba.fastjson.JSONObject;
+
 import java.util.Date;
 import java.util.List;
+import java.util.function.Function;
 
 /**
  * Author: chenyao
@@ -10,6 +13,16 @@ import java.util.List;
  */
 public class GsonFormate {
 
+    public static void main(String[] args) {
+
+        Function<String,Integer> function =  s -> {
+            System.out.println(s);
+            return 1;
+        };
+        System.out.println(function.toString());;
+        System.out.println(function.apply(" qw"));;
+
+    }
 
     /**
      * text : MXCHIP won a prize

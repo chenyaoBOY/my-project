@@ -1,4 +1,4 @@
-package org.springboot.study;
+package org.springboot.study.config;
 
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;

@@ -17,7 +17,7 @@ public class GPRSMapperTest extends SpringbootTestBase {
 
     @Test
     public void test() throws IllegalAccessException {
-        TransferObject<GprsReconciliationChannelBill> service =  new TransferObject();
+        TransferObject service =  new TransferObject();
         GprsReconciliationChannelBill bill = new GprsReconciliationChannelBill();
         GprsReconciliationChannelBill transfer = service.transfer(bill);
         System.out.println(gprsMapper.insert(transfer));

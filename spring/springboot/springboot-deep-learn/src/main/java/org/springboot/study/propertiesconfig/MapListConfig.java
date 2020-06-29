@@ -26,4 +26,11 @@ public class MapListConfig {
         return map;
     }
 
+    public void setMap(Map<String, String> map) {
+        this.map = map;
+    }
+
+    public void setList(List<String> list) {
+        this.list = list;
+    }
 }

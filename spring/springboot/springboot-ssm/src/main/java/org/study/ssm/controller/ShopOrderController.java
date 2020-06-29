@@ -1,5 +1,6 @@
 package org.study.ssm.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
@@ -9,7 +10,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.study.ssm.domain.ShopOrder;
+import org.study.ssm.domain.ShopOrderExample;
 import org.study.ssm.mapper.ShopOrderMapper;
+
+import java.util.List;
 
 /**
  * @author chenyao
@@ -23,6 +27,12 @@ public class ShopOrderController {
     private ShopOrderMapper shopOrderMapper;
     @Autowired
     private DataSourceTransactionManager dataSourceTransactionManager;
+
+    @GetMapping("/select/shoporder")
+    public String slelectAll(){
+        List<ShopOrder> shopOrders = shopOrderMapper.selectByExample(new ShopOrderExample());
+        return JSONObject.toJSONString(shopOrders);
+    }
 
     /***
      * @description //TODO 验证声明式事务是否有效 结果：可以这么使用
