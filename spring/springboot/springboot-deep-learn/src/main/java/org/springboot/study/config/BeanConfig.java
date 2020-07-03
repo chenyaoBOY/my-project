@@ -3,6 +3,7 @@ package org.springboot.study.config;
 import org.springboot.study.entity.UserChina;
 import org.springboot.study.entity.UserJapan;
 import org.springboot.study.entity.UserParent;
+import org.springboot.study.health.MysqlHealthIndicator;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
@@ -29,4 +30,5 @@ public class BeanConfig {
     public UserJapan userJapan(){
         return new UserJapan();
     }
+
 }

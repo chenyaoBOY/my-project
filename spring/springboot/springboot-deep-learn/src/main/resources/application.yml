@@ -12,4 +12,10 @@ kabin:
 server:
   port: 8080
 
-
+#  健康检查配置
+management:
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
+#debug: true

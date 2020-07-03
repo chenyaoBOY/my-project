@@ -23,12 +23,13 @@ public class WiriteFileToDiskController {
         if (!file.exists()) file.mkdirs();
         System.out.println(file.getAbsolutePath());
         System.out.println(file.getPath());
-
         return "ok";
     }
 
     public static void main(String[] args) throws IOException {
         File file = new File("/Java/file/adyen.txt");
+        FileInputStream fileInputStream = new FileInputStream("/Java/file/adyen.txt");
+        String inpustStreamString = getInpustStreamString(fileInputStream);
         if (!file.exists()) {
             return;
         }
@@ -49,5 +50,14 @@ public class WiriteFileToDiskController {
 
     }
 
+    private static String getInpustStreamString(InputStream stream) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        byte[] bytes = new byte[1024];
+        int b;
+        while ((b = stream.read(bytes, 0, bytes.length)) > 0) {
+            sb.append(new String(bytes, 0, b));
+        }
+        return sb.toString();
+    }
 
 }
