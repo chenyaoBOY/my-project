@@ -1,0 +1,19 @@
+
+
+#####################################################
+############      自定义属性都在这里       ###########
+#####################################################
+
+
+#注入map 和list
+kabin:
+  source:
+    path: /Java/file/
+    filename:
+      map:
+        adyen: adyen.txt
+        ebanx: ebanx.xlsx
+        emis: first.CSV,second.CSV
+      list:
+        - 1
+        - 2

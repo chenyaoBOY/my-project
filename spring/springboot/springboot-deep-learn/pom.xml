@@ -17,7 +17,7 @@
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-parent</artifactId>
-                <version>2.1.5.RELEASE</version>
+                <version>2.3.1.RELEASE</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -78,12 +78,7 @@
                 </includes>
             </resource>
             <resource>
-                <directory>src/main/resources</directory>
-                <includes>
-                    <include>*.yml</include>
-                    <include>*.txt</include>  <!--将banner.txt 编译进target-->
-                    <include>*.jpg</include>  <!--将banner.txt 编译进target-->
-                </includes>
+                <directory>src/main/resources/*</directory>
             </resource>
             <resource>
                 <directory>src/main/resources/resources</directory>

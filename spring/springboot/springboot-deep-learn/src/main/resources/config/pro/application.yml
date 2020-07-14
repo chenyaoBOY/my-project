@@ -1,0 +1,28 @@
+
+#####################################################
+################     spring核心配置     #############
+#####################################################
+#添加运行参数  --spring.config.location=classpath:/config/dev/
+
+#系统配置
+server:
+  port: 80
+#debug: true
+
+
+spring:
+  main:
+    #懒加载配置
+    #  全局懒加载 基本上会加入spring容器的bean都会懒加载  filter除外
+    #  也可以通过main方法调用SpringApplicationBuilder#lazyInitialization  或者SpringApplication#setLazyInitialization
+    lazy-initialization: false
+  profiles:
+#    include: application-mysql.yml,application-redis.yml,application-value.yml
+    active: mysql,redis,value
+
+#  健康检查配置 Actuator
+management:
+  endpoint:
+    health:
+      enabled: true
+      show-details: always
