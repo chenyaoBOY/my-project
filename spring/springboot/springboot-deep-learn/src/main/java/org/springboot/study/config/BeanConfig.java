@@ -1,14 +1,14 @@
 package org.springboot.study.config;
 
 import com.alibaba.fastjson.JSONObject;
+import org.springboot.study.entity.ComputerUser;
 import org.springboot.study.entity.UserChina;
 import org.springboot.study.entity.UserJapan;
 import org.springboot.study.entity.UserParent;
-import org.springboot.study.health.MysqlHealthIndicator;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ExitCodeGenerator;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -45,6 +45,13 @@ public class BeanConfig {
     public ExitCodeGenerator exitCodeGenerator(){
 //        System.out.println("System.exit()方法被调用了");
         return () -> 10000;
+    }
+
+
+    @Bean
+    @ConfigurationProperties(prefix = "computer.user")
+    public ComputerUser computerUser(){
+        return new ComputerUser();
     }
 
 }

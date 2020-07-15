@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
  */
 //@SpringBootApplication
 //@RestController
-public class App implements AppInterface {
+public class ValueReadController implements AppInterface {
 
     @Value("${app.name:yaoyao}")
     String name;
@@ -48,7 +48,7 @@ public class App implements AppInterface {
 
 
     public static void main(String[] args) {
-        SpringApplication.run(App.class,args);
+        SpringApplication.run(ValueReadController.class,args);
     }
 
     @Override

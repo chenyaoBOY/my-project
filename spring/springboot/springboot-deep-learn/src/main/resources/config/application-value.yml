@@ -17,3 +17,19 @@ kabin:
       list:
         - 1
         - 2
+#构造器注入
+acme:
+  name: acme-name
+  address: acme-address
+  security:
+    sign: 1234567890
+    key: sign-key
+
+
+# @Bean注解上使用 @ConfigurationProperties
+# org.springboot.study.config.BeanConfig.computerUser
+computer:
+  user:
+    master: chenyao
+    width: 18
+    height: 30
