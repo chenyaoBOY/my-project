@@ -23,7 +23,7 @@ public class BeforeSpringStart implements ApplicationRunner, Ordered {
     private String version;
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        System.out.println("BeforeSpringStart 是否在main方法结束前调用"+name+version);
+        System.out.println("BeforeSpringStart 是否在main方法结束前调用 application-mysql.yml配置读取为："+name+version);
     }
 
     @Override

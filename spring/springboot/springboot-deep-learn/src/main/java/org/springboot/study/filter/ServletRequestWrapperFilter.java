@@ -1,5 +1,6 @@
 package org.springboot.study.filter;
 
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 import org.springframework.web.util.ContentCachingRequestWrapper;
 
@@ -13,6 +14,7 @@ import java.io.IOException;
  * @description
  */
 @Component
+@Order(0)
 public class ServletRequestWrapperFilter implements Filter {
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

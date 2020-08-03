@@ -2,7 +2,8 @@
 #####################################################
 ################     spring核心配置     #############
 #####################################################
-#添加运行参数  --spring.config.location=classpath:/config/dev/
+#添加运行参数  --spring.config.location=classpath:/config/pro/ --spring.profiles.active=pro
+
 
 #系统配置
 server:
@@ -17,8 +18,11 @@ spring:
     #  也可以通过main方法调用SpringApplicationBuilder#lazyInitialization  或者SpringApplication#setLazyInitialization
     lazy-initialization: false
   profiles:
-#    include: application-mysql.yml,application-redis.yml,application-value.yml
-    active: mysql,redis,value
+    include:
+      - mysql
+      - redis
+      - value
+#    active: mysql,redis,value
 
 #  健康检查配置 Actuator
 management:

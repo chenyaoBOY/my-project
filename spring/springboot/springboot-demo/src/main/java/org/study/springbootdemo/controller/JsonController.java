@@ -15,7 +15,11 @@ public class JsonController {
     public String jsonValidate(){
         HashMap<Object, Object> map = new HashMap<>();
         map.put("key","门导轮(小带轮) <n30>");
-
+        try {
+            Thread.sleep(1000*200);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return JSONObject.toJSONString(map);
     }
 }

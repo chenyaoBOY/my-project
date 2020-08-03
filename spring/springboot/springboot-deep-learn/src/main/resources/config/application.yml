@@ -6,7 +6,8 @@
 #系统配置
 server:
   port: 8080
-#debug: true
+#debug: true #不会打印spring的debug和mybatis的debug信息等
+#trace: true #基本打印打印所有debug信息和trace级别的信息
 
 
 spring:
@@ -16,7 +17,13 @@ spring:
     #  也可以通过main方法调用SpringApplicationBuilder#lazyInitialization  或者SpringApplication#setLazyInitialization
     lazy-initialization: false
   profiles:
-    active: mysql,redis,value
+    include:
+      - mysql
+      - redis
+      - value
+      - log
+#    active: mysql,redis,value
+
 
 #  健康检查配置 Actuator
 management:
@@ -24,3 +31,4 @@ management:
     health:
       enabled: true
       show-details: always
+

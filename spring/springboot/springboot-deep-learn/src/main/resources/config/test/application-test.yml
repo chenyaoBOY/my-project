@@ -2,7 +2,7 @@
 #####################################################
 ################     spring核心配置     #############
 #####################################################
-#添加运行参数  --spring.config.location=classpath:/config/test/
+#添加运行参数  --spring.config.location=classpath:/config/test/ --spring.profiles.active=test
 #系统配置
 server:
   port: 8081
@@ -15,8 +15,11 @@ spring:
     #  也可以通过main方法调用SpringApplicationBuilder#lazyInitialization  或者SpringApplication#setLazyInitialization
     lazy-initialization: false
   profiles:
-    active: mysql,redis,value
-#    include: ./application-mysql.yml
+    include:
+      - mysql
+      - redis
+      - value
+#    active: mysql,redis,value
 
 #  健康检查配置 Actuator
 management:

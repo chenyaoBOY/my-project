@@ -8,9 +8,14 @@ import org.springboot.study.entity.UserParent;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.web.servlet.DelegatingFilterProxyRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.converter.BufferedImageHttpMessageConverter;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.web.filter.DelegatingFilterProxy;
 
 /**
  * @author chenyao
@@ -48,10 +53,18 @@ public class BeanConfig {
     }
 
 
+    /**
+     * 使用@ConfigurationProperties注解可以直接填充bean字段
+     */
     @Bean
     @ConfigurationProperties(prefix = "computer.user")
     public ComputerUser computerUser(){
         return new ComputerUser();
     }
 
+//    @Bean
+//    public DelegatingFilterProxyRegistrationBean delegatingFilterProxyRegistrationBean(){
+//
+//        return new DelegatingFilterProxyRegistrationBean();
+//    }
 }

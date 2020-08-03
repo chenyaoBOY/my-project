@@ -3,6 +3,7 @@ package org.study.springbootdemo;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
@@ -40,11 +41,36 @@ public class CYTEst {
         HttpEntity entity = new StringEntity(json, ContentType.APPLICATION_JSON);
         post.setEntity(entity);
 
-        HttpResponse httpResponse = client.execute(post);
 
         StringBuffer buffer = new StringBuffer();
         InputStream content = null;
         try {
+            HttpResponse httpResponse = client.execute(post);
+
+            content = httpResponse.getEntity().getContent();
+            byte[] b = new byte[1024];
+            int len ;
+            while ((len = content.read(b))>0){
+                buffer.append(new String(b,0,len));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        System.out.println(buffer.toString());
+
+    }
+    @Test
+    public void test02() throws IOException {
+        String url = "http://localhost:18080/jsonValidate.do";
+        HttpClient client = HttpClients.createDefault();
+
+        StringBuffer buffer = new StringBuffer();
+        InputStream content = null;
+        try {
+            HttpGet httpGet = new HttpGet(url);
+            HttpResponse httpResponse = client.execute(httpGet);
+
             content = httpResponse.getEntity().getContent();
             byte[] b = new byte[1024];
             int len ;

@@ -3,6 +3,7 @@ package org.springboot.study.application;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.Ordered;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,14 +16,10 @@ import org.springframework.stereotype.Component;
  * 如果有多个ApplicationRunner实现类 则可以使用 @Order注解 或者 实现Ordered接口
  */
 @Component
-public class BeforeSpringStart2 implements ApplicationRunner, Ordered {
+@Order(0)
+public class BeforeSpringStart2 implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
         System.out.println("BeforeSpringStart2 是否在main方法结束前调用");
-    }
-
-    @Override
-    public int getOrder() {
-        return 0;
     }
 }
