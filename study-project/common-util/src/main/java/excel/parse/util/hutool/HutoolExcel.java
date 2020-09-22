@@ -1,4 +1,4 @@
-package excel.parse.util;
+package excel.parse.util.hutool;
 
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
@@ -33,9 +33,12 @@ public class HutoolExcel {
             list.add(info);
         }
 
-        ExcelWriter writer = ExcelUtil.getWriter("E:\\Java\\file\\ck_bin-2.xlsx");
+        ExcelWriter writer = ExcelUtil.getWriter("E:\\Java\\file\\bean.xlsx");
 
-        writer.write(list,true);
+//        writer.addHeaderAlias("address","地址");
+//        writer.addHeaderAlias("age","年龄");
+//        writer.addHeaderAlias("name","名字");
+        writer.write(list);
         writer.close();
     }
 

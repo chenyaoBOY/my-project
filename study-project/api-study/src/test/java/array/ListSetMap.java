@@ -97,4 +97,16 @@ public class ListSetMap {
 
     }
 
+    @Test
+    public void test05(){
+        Set<String> set1 = new HashSet<>();
+        Set<String> set2 = new HashSet<>();
+        for (int i = 0; i < 5; i++) {
+            set1.add(""+i);
+            set2.add(""+i);
+        }
+        set1.add("asdg");
+        System.out.println(set1.equals(set2));
+    }
+
 }

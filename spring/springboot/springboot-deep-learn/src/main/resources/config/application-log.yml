@@ -22,12 +22,13 @@
 #  加颜色   %clr(内容){颜色名字}   blue cyan faint green magenta red yellow
 
 logging:
-#  file:
-#    name: /Java/file/springboot.log
-#    max-history: 14
-#    max-size: 100MB #日志文件达到100MB以后 就会自动分包 springboot.log.2020-07-23.数字.gz
+  file:
+    name: /Java/file/springboot.log
+    max-history: 14
+    max-size: 100MB #日志文件达到100MB以后 就会自动分包 springboot.log.2020-07-23.数字.gz
   pattern:
-    console: '%clr(%d{MM/dd HH:mm:ss.SSS}){magenta} %clr(%p){red} %clr(%C{0}){cyan}: %m %n'
+    console: '%clr(%d{MM/dd HH:mm:ss.SSS}){magenta} [%t] %clr(%p){red} %clr(%C{0}.%M.java:%L){cyan}: %m %n'
+    file: '%d{MM/dd HH:mm:ss.SSS} [%t] %p %C{0}.%M.java:%L: %m %n'
   level:
     web: debug # 可以看到springMVC中的一些初始化 比如加载filter的顺序和过滤规则 Servlet的过滤规则
 #    root: info
