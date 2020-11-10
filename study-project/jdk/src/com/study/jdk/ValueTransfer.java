@@ -1,5 +1,10 @@
 package com.study.jdk;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * @author chenyao
  * @date 2020/4/3 9:49
@@ -13,17 +18,10 @@ public class ValueTransfer {
         this.msg = msg;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 
-        ValueTransfer v1 = new ValueTransfer("v1");
-        ValueTransfer v2 = new ValueTransfer("v2");
-        System.out.println(v1);
-        System.out.println(v2);
-
-        change(v1,v2);
-
-        System.out.println(v1);
-        System.out.println(v2);
+        String s = null;
+        System.out.println(s+"Sdf");
 
     }
 

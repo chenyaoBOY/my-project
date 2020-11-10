@@ -315,4 +315,25 @@ public class Product{
         this.predictSum = predictSum;
     }
 
+    @Override
+    public String toString() {
+        return "Product{" +
+                "purchaseProductId=" + purchaseProductId +
+                ", purchaseId=" + purchaseId +
+                ", productId=" + productId +
+                ", inPrice=" + inPrice +
+                ", productName='" + productName + '\'' +
+                ", productCode='" + productCode + '\'' +
+                ", barCode='" + barCode + '\'' +
+                ", specification='" + specification + '\'' +
+                ", saleUnit='" + saleUnit + '\'' +
+                ", boxSpecification='" + boxSpecification + '\'' +
+                ", purchaseRemark='" + purchaseRemark + '\'' +
+                ", purchaseSum=" + purchaseSum +
+                ", arrivalSum=" + arrivalSum +
+                ", warehouseId=" + warehouseId +
+                ", supplierId=" + supplierId +
+                ", predictSum=" + predictSum +
+                '}';
+    }
 }
